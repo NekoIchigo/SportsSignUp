@@ -4,19 +4,19 @@
     <meta charset="utf-8">
     <title> Interactive Login Form</title>
     <link rel="stylesheet" href="css/loginStyle.css">
-    <script src = loginJava.js>
+    <script src = js/loginJava.js>
 
     </script>
 
 </head>
 <body>
-    <form class="box" action="login.html" method="POST">
+    <form class="box" action="php_func/login_func.php" method="POST">
         <h1>
             login
         </h1>
-        <input type="text" name="" placeholder="Enter Username" id="username">
-        <input type="password" name="" placeholder="Enter Password" id="password">
-        <input type="submit" name="" value="Login" onclick="validate()">
+        <input type="text" name="uname" placeholder="Enter Username" id="username">
+        <input type="password" name="pwd" placeholder="Enter Password" id="password">
+        <input type="submit" name="submit" value="Login" onclick="validate()">
     </form>
 
 <div id="container">
