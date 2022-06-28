@@ -38,10 +38,11 @@
           echo '<div class="card">
                     <div class="card-image" style="background-image:url(img/event_img/'.$data["toutnamentPic"].')"></div>
                     <h2>'.$data["tournamentName"].'</h2>
+                    <p><i class="fa fa-user"></i> '.$data["eventHandler"].'<br></p>
                     <p><i class="fa fa-gamepad"></i>   '.$data["sportsType"].'<br></p>
                     <p><i class="fa fa-users"></i>   No. of participants<br></p>
                     <p><i class="fa fa-calendar"></i>   '.$data["tournamentDate"].'<br></p>
-                    <p>Created at 06/23/2002</p>
+                    <p><i class="fa fa-clock"></i>  '.$data["tournamentTime"].'<br></p>
                     <a href=""> View </a>';
           if(isset($_GET["admin"])){
               echo '<a href=""> Edit </a>';
