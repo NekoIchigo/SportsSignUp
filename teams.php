@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <div class="logo"><a href=""><img src="img/TOP.png"></a>
+  <div class="logo"><a href="index.php"><img src="img/TOP.png"></a>
 
     <nav>
       <label class="tourna">TOURNAMENTS</label>
@@ -22,30 +22,27 @@
       </ul>
     </nav>
   </div>
-
-  <div id="body2">
-    <button type="submit"><b>SUBMIT TEAM</b></button>
-    <!-- <button type="button" name="button" id="add_more"><b>ADD TEAM +</b></button> -->
-  </div>
-
   <section class="container">
     <div id="add_here">
       <div class="card">
         <div class="team-card">
+          <form action="php_func/insert_teams.php" method="post">
+          <input type="hidden" name="tournamentID" value="<?php if(isset($_GET['tourna'])) echo $_GET['tourna'];?>"/>
           <label>Team Name: </label>
-          <input type="text" name="" value="" placeholder="Enter Team Name here">
+          <input type="text" name="teamName" placeholder="Enter Team Name here"/>
           <label>Leader Name: </label>
-          <input type="text" name="" value="" placeholder="Enter Leader Name here">
+          <input type="text" name="leader" placeholder="Enter Leader Name here"/>
           <label>Members Name: </label>
-          <textarea name="name" rows="5" cols="80" placeholder="Enter Members Name here"></textarea>
+          <textarea name="members" rows="5" cols="80" placeholder="Enter Members Name here"></textarea>
         </div>
       </div>
     </div>
-    <div class="add-card" id="add_more">
-      <button type="button">+</button>
-    </div>
   </section>
-
+  <div id="body2">
+    <button type="submit" name="submit"><b>SUBMIT TEAM</b></button>
+    </form>
+    <button type="button" name="button" id="add_more"><b>ADD TEAM +</b></button>
+  </div>
   <section class="footer">
     <div class="social">
       <a href="#"><i class="fab fa-facebook"></i></a>

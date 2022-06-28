@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <div class="logo"><a href=""><img src="img/TOP.png"></a>
+  <div class="logo"><a href="index.php"><img src="img/TOP.png"></a>
     <nav>
     </nav>
   </div>

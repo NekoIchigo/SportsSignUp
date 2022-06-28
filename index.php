@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-    <div class="logo"><a href=""><img src="img/TOP.png"></a>
+    <div class="logo"><a href="index.php"><img src="img/TOP.png"></a>
 
     <nav>
         <label class="tourna">TOURNAMENTS</label>
@@ -36,7 +36,7 @@
       if ($data = mysqli_fetch_assoc($result)) {
         while ($data = mysqli_fetch_assoc($result)) {
           echo '<div class="card">
-                    <div class="card-image" style="background-image:url(img/'.$data["toutnamentPic"].')"></div>
+                    <div class="card-image" style="background-image:url(img/event_img/'.$data["toutnamentPic"].')"></div>
                     <h2>'.$data["tournamentName"].'</h2>
                     <p><i class="fa fa-gamepad"></i>   '.$data["sportsType"].'<br></p>
                     <p><i class="fa fa-users"></i>   No. of participants<br></p>

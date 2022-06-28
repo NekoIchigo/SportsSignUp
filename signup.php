@@ -12,11 +12,11 @@
 <link rel="shortcut icon" type="x-icon" href="tablogo.png">
 
 <body>
-  <div class="logo"><a href=""><img src="img/TOP.png"></a>
+  <div class="logo"><a href="index.php"><img src="img/TOP.png"></a>
     <nav>
     </nav>
   </div>
-  <form class="box" action="php_func/create_admin.php" method="POST">
+  <form class="box" action="php_func/create_admin.php" method="get">
     <h1>create admin</h1>
     <input type="text" name="uname" placeholder="Enter Username" id="username">
     <input type="password" name="pwd" placeholder="Enter Password" id="password">
