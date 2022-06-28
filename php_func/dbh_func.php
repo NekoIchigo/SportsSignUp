@@ -2,7 +2,7 @@
 $serverName = "localhost";
 $dbUserName = "root";
 $dbPassword = "";
-$dbName = "sports_management_system";
+$dbName = "sports_event_management";
 
 $conn = mysqli_connect($serverName, $dbUserName, $dbPassword, $dbName);
 

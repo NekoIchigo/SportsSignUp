@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
@@ -28,39 +27,41 @@
       </td>
     </tr>
     <tr>
-      <td><br>Tournament Name :</td>
-      <td> <br><input type="text" placeholder=" Enter Tournament Name" id="name" name="name">
-      </td>
+      <form action="php_func/crate_tourna.php" method="post" enctype="multipart/form-data">
+        <td><br>Tournament Name :</td>
+        <td> <br><input type="text" placeholder=" Enter Tournament Name" id="name" name="tournament_name"/>
+        </td>
     </tr>
     <tr>
       <td class="txt"><br><br> Sports Type :</br>
-      <td><br><br><select id="sportsType" onchange="changeStatus()" style="padding: 5px">
+      <td><br><br><select id="sportsType" style="padding: 5px" name="sports_type">
           <option value="S">Select</option>
-          <option value="B">Basketball</option>
-          <option value="V">Volleyball</option>
-          <option value="F">Football</option>
-          <option value="C">Chess</option>
-          <option value="TT">Table Tennis</option>
-          <option value="T">Tennis</option>
-          <option value="B">Badminton</option>
+          <option value="Basketball">Basketball</option>
+          <option value="Volleyball">Volleyball</option>
+          <option value="Football">Football</option>
+          <option value="Chess">Chess</option>
+          <option value="Table Tennis">Table Tennis</option>
+          <option value="Tennis">Tennis</option>
+          <option value="Badminton">Badminton</option>
+        </select>
       </td>
       </td>
     </tr>
     <tr>
       <td><br> <br>Event Handler : </td>
-      <td><br> <br><input type="text" placeholder=" Enter Event Handler" id="name" name="name"> </td>
+      <td><br> <br><input type="text" placeholder=" Enter Event Handler" id="name" name="event_handler"/> </td>
     </tr>
     <tr>
-      <td><br><br> Team Name : </td>
-      <td><br> <br><input type="text" placeholder=" Enter Team Name" id="name" name="name"> </td>
+      <td> <br><br>Date : </td>
+      <td><br><br> <input type="date" id="name" name="date"> </td>
     </tr>
     <tr>
-      <td> <br><br>Date and Time : </td>
-      <td><br><br> <input type="date" id="name" name="name"> </td>
+      <td> <br><br>Time : </td>
+      <td><br><br> <input type="time" id="name" name="time"> </td>
     </tr>
     <tr>
       <td><br> <br>Event Picture : </td>
-      <td><br> <br><input type="file" id="inpFile" name="inpFile">
+      <td><br> <br><input type="file" id="inpFile" name="picture"/>
         <div class="image-preview" id="imagePreview">
           <img src="" alt="Image Preview" class="image-preview__image">
           <span class="image-preview__default-text">Image Preview</span>
@@ -70,7 +71,8 @@
     <tr>
       <td align="center" colspan="2">
         <br>
-        <input type="submit" value="NEXT" name="next" id="button1">
+        <input type="submit" value="NEXT" name="next" id="button1"/>
+        </form>
       </td>
   </table>
   <br><br><br><br><br>

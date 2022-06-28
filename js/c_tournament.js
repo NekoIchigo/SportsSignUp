@@ -1,4 +1,4 @@
-S// Preview of the image to upload
+// Preview of the image to upload
 const inpFile = document.getElementById("inpFile");
 const previewContainer = document.getElementById("imagePreview");
 const previewImage = previewContainer.querySelector(".image-preview__image");

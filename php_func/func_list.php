@@ -1,9 +1,9 @@
 <?php
 //sign up
-function emptyInputSignup($uname, $email, $pwd, $conpwd)
+function emptyInputSignup($uname, $pwd, $conpwd)
 {
   $result;
-  if (empty($uname) || empty($email) || empty($pwd) || empty($conpwd)) {
+  if (empty($uname) || empty($pwd) || empty($conpwd)) {
     $result = true;
   } else {
     $result = false;
@@ -84,16 +84,16 @@ function pwdMatch($pwd, $conpwd)
   return $result;
 }
 
-function unameEmailExist($conn, $uname, $email)
+function unameEmailExist($conn, $uname)
 {
-  $sql = "SELECT * FROM users WHERE usersName = ? OR usersEmail = ?;";
+  $sql = "SELECT * FROM admin WHERE uname = ?;";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)) {
     header("location: ../signup.php?error=username/stmt_failed");
     exit();
   }
 
-  mysqli_stmt_bind_param($stmt, "ss", $uname, $email);
+  mysqli_stmt_bind_param($stmt, "s", $uname);
   mysqli_stmt_execute($stmt);
 
   $resultData = mysqli_stmt_get_result($stmt);
@@ -107,20 +107,20 @@ function unameEmailExist($conn, $uname, $email)
 
   mysqli_stmt_close($stmt);
 }
-
-function createUser($conn, $uname, $email, $pwd)
+//end
+function createUser($conn, $uname, $pwd)
 {
   $date = date("m/d/Y");
   $filename = "default.png";
   $description = "Describe yourself!";
-  $sql = "INSERT INTO users (usersName, usersEmail, usersPwd, dateJoined, filename, description) VALUES (?, ?, ?, ?, ?, ?);";
+  $sql = "INSERT INTO admin (uname, pwd) VALUES (?, ?);";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)) {
-    header("location: ../signup.php?error=username/stmt_failed");
+    header("location: ../signup.php?error=signup/stmt_failed");
     exit();
   }
 
-  mysqli_stmt_bind_param($stmt, "ssssss", $uname, $email, $pwd, $date, $filename, $description);
+  mysqli_stmt_bind_param($stmt, "ss", $uname, $pwd);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
   header("location: ../login.php?signup=success");
@@ -128,24 +128,17 @@ function createUser($conn, $uname, $email, $pwd)
 }
 //login
 function loginUser($conn, $uname, $pwd){
-  $unameEmailExist = unameEmailExist($conn, $uname, $uname);
+  $unameEmailExist = unameEmailExist($conn, $uname);
   if ($unameEmailExist === false) {
     header("location: ../login.php?error=usernotexist");
-
     exit();
   }
 
-  $getPwd = $unameEmailExist["usersPwd"];
+  $getPwd = $unameEmailExist["pwd"];
   if ($getPwd === $pwd) {
     session_start();
-    $_SESSION["usersName"] = $unameEmailExist["usersName"];
-    $_SESSION["usersID"] = $unameEmailExist["usersID"];
-    $_SESSION["usersPwd"] = $unameEmailExist["usersPwd"];
-    $_SESSION["usersEmail"] = $unameEmailExist["usersEmail"];
-    $_SESSION["dateJoined"] = $unameEmailExist["dateJoined"];
-    $_SESSION["filename"] = $unameEmailExist["filename"];
-    $_SESSION["description"] = $unameEmailExist["description"];
-    header("location: ../index.php?login=success");
+    $_SESSION["uname"] = $unameEmailExist["uname"];
+    header("location: ../index.php?login=success&admin=");
     exit();
   } else {
     header("location: ../login.php?error=wrongpassword");
@@ -155,7 +148,7 @@ function loginUser($conn, $uname, $pwd){
 
 function unameExist($conn, $uname)
 {
-  $sql = "SELECT * FROM users WHERE usersName = ?;";
+  $sql = "SELECT * FROM admin WHERE uname = ?;";
   $stmt = mysqli_stmt_init($conn);
   if (!mysqli_stmt_prepare($stmt, $sql)) {
     header("location: ../signup.php?error=username/stmt_failed");

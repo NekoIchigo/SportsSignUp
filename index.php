@@ -12,11 +12,17 @@
 
     <nav>
         <label class="tourna">TOURNAMENTS</label>
-        <ul>
-          <li><a class="" href="#">Create Admin</a></li>
-          <li><a href="#">Create Tournament</a></li>
-          <li><a href="#">Logout</a></li>
-        </ul>
+        <?php
+        require "php_func/dbh_func.php";
+          if(isset($_GET["admin"])){
+            echo '
+            <ul>
+              <li><a class="" href="#">Create Admin</a></li>
+              <li><a href="#">Create Tournament</a></li>
+              <li><a href="#">Logout</a></li>
+            </ul>';
+          }
+         ?>
     </nav>
     </div>
 
@@ -25,19 +31,24 @@
 
     <section class="container">
       <?php
-
-        for ($i=0; $i < 5; $i++) {
+      // fetching data fromm database
+      $result = mysqli_query($conn, "SELECT * FROM tournament");
+      if ($data = mysqli_fetch_assoc($result)) {
+        while ($data = mysqli_fetch_assoc($result)) {
           echo '<div class="card">
-                    <div class="card-image" style="background-image:url(img/badminton.jpg)"></div>
-                    <h2>Badmintioon</h2>
-                    <p><i class="fa fa-gamepad"></i>   Badminton<br></p>
+                    <div class="card-image" style="background-image:url(img/'.$data["toutnamentPic"].')"></div>
+                    <h2>'.$data["tournamentName"].'</h2>
+                    <p><i class="fa fa-gamepad"></i>   '.$data["sportsType"].'<br></p>
                     <p><i class="fa fa-users"></i>   No. of participants<br></p>
-                    <p><i class="fa fa-calendar"></i>   Date not specified<br></p>
+                    <p><i class="fa fa-calendar"></i>   '.$data["tournamentDate"].'<br></p>
                     <p>Created at 06/23/2002</p>
-                    <a href=""> View </a>
-                    <a href=""> Edit </a>
-                </div>';
+                    <a href=""> View </a>';
+          if(isset($_GET["admin"])){
+              echo '<a href=""> Edit </a>';
+          }
+          echo '</div>';
         }
+      }
        ?>
     </section>
 
