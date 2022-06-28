@@ -16,7 +16,13 @@ body{
 .container{
   display: flex;
   justify-content: left;
-  margin-top: 20px;
+  margin: 20px 0px 20px 70px;
+  flex-wrap: wrap;
+  margin-left: 70px;
+}
+
+#add_here{
+  display: flex;
   flex-wrap: wrap;
 }
 
@@ -27,6 +33,54 @@ body{
   border-radius: 5px;
 }
 
+.team-card{
+  padding: 10px;
+}
+
+#body2{
+  margin-left: 70px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#body2 button{
+  background-color: #454d60;
+  color: white;
+  padding: 15px 20px;
+  display: block;
+  text-align: center;
+  margin: 20px 10px;
+  width: 240px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+#body2 button:hover{
+  opacity: 0.5;
+}
+
+.add-card{
+  background: #404859;
+  width: 280px;
+  margin: 10px;
+  padding: 130px 110px;
+  border-radius: 5px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.add-card:hover{
+  opacity: 0.5;
+}
+
+.add-card button{
+  background: #404859;
+  color: #303540;
+  border: 0;
+  font-size: 100px;
+}
+
 .card-image{
   height: 150px;
   margin-bottom: 15px;
@@ -34,24 +88,38 @@ body{
   border-radius: 5px 5px 0 0;
 }
 
-.game-1{
-  background-image: url(../img/ML.jpg);
-
-}
-
-.game-2{
-  background-image: url(../img/basketball.jpeg);
-
-}
-
-.game-3{
-  background-image: url(../img/badminton.jpg);
-
-}
 .card h2{
   padding: 10px;
   color: white;
 }
+
+.card label{
+  font-size: 20px;
+  padding: 10px;
+  color: white;
+}
+
+.card input, textarea{
+  margin: 10px;
+  border:0;
+  background:#a9a9a9;
+  display:block;
+  text-align: left;
+  padding: 15px 20px;
+  outline:none;
+  width: 240px;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  transition: 0.25px;
+  color: black;
+}
+
+::placeholder{
+  color: black;
+  opacity: 0.7;
+}
+
 .card i{
   padding: 10px;
   color: #aaa;
@@ -70,6 +138,7 @@ body{
   text-align: center;
   margin: 20px 50px;
 }
+
 label.tourna{
   color: white;
   font-size: 35px;
@@ -85,7 +154,7 @@ label.tourna{
 }
 
 nav{
-      background-color: #605d73;
+      background-color: #24305d;
       width: 100%;
       height: 150px;
       margin: 0px;
@@ -97,11 +166,12 @@ nav ul{
   margin-right: 20px;
 }
 
+
 nav ul li{
   display: inline-block;
   line-height: 70px;
-  margin:-10px;
-
+  margin-right: 10px;
+  margin-top: -10px;
 }
 
 nav ul li a{
