@@ -17,9 +17,9 @@
           if(isset($_GET["admin"])){
             echo '
             <ul>
-              <li><a class="" href="#">Create Admin</a></li>
-              <li><a href="#">Create Tournament</a></li>
-              <li><a href="#">Logout</a></li>
+              <li><a class="" href="signup.php">Create Admin</a></li>
+              <li><a href="ctournament.php">Create Tournament</a></li>
+              <li><a href="php_func/logout_func.php">Logout</a></li>
             </ul>';
           }
          ?>

@@ -17,7 +17,7 @@
     </nav>
   </div>
   <form class="box" action="php_func/create_admin.php" method="POST">
-    <h1>sign up</h1>
+    <h1>create admin</h1>
     <input type="text" name="uname" placeholder="Enter Username" id="username">
     <input type="password" name="pwd" placeholder="Enter Password" id="password">
     <input type="password" name="conpwd" placeholder="Confirm Password" id="confirmpass">
