@@ -27,3 +27,30 @@ inpFile.addEventListener("change", function() {
         previewImage.setAttribute("src","");
     }
 });
+
+//add Participant field
+const select_no_parti = document.getElementById("partcipants");
+const part4 = document.getElementById("part_4");
+const part8 = document.getElementById("part_8");
+part4.style.display = "none";
+part8.style.display = "none";
+select_no_parti.addEventListener("change", show_parti);
+
+function show_parti(){
+  if (select_no_parti.value == 4) {
+    if (part4.style.display === "none") {
+      part4.style.display = "block";
+    }
+    if (part8.style.display === "block") {
+      part8.style.display = "none";
+    }
+  }
+  else if (select_no_parti.value == 8) {
+    part4.style.display = "block";
+    part8.style.display = "block";
+  }
+  else if (select_no_parti.value == 0) {
+    part4.style.display = "none";
+    part8.style.display = "none";
+  }
+}

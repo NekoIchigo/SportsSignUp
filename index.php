@@ -12,17 +12,19 @@
 
     <nav>
         <label class="tourna">TOURNAMENTS</label>
+        <ul>
         <?php
+        session_start();
         require "php_func/dbh_func.php";
-          if(isset($_GET["admin"])){
+          if(isset($_SESSION["uname"])){
             echo '
-            <ul>
-              <li><a class="" href="signup.php">Create Admin</a></li>
+              <li><a class="" href="createAdmin.php">Create Admin</a></li>
               <li><a href="ctournament.php">Create Tournament</a></li>
-              <li><a href="php_func/logout_func.php">Logout</a></li>
-            </ul>';
+              <li><a href="php_func/logout_func.php">Logout</a></li>';
           }
          ?>
+         <li><a href="aboutDevs.html">About The Devs</a></li>
+        </ul>
     </nav>
     </div>
 
@@ -40,12 +42,12 @@
                     <h2>'.$data["tournamentName"].'</h2>
                     <p><i class="fa fa-user"></i> '.$data["eventHandler"].'<br></p>
                     <p><i class="fa fa-gamepad"></i>   '.$data["sportsType"].'<br></p>
-                    <p><i class="fa fa-users"></i>   No. of participants<br></p>
+                    <p><i class="fa fa-users"></i>   '.$data["no_participants"].' participants<br></p>
                     <p><i class="fa fa-calendar"></i>   '.$data["tournamentDate"].'<br></p>
                     <p><i class="fa fa-clock"></i>  '.$data["tournamentTime"].'<br></p>
                     <a href=""> View </a>';
-          if(isset($_GET["admin"])){
-              echo '<a href=""> Edit </a>';
+          if(isset($_SESSION["uname"])){
+              echo '<a href="edit_del.php"> Edit </a>';
           }
           echo '</div>';
         }

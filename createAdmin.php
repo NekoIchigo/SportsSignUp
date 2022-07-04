@@ -1,3 +1,9 @@
+<?php
+  if (!isset($_SESSION["uname"])) {
+    header("location: index.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html lan="en" and dir="Itr">
 
@@ -16,11 +22,21 @@
     <nav>
     </nav>
   </div>
-  <form class="box" action="php_func/create_admin.php" method="get">
+  <form class="box" action="php_func/create_admin.php" method="post">
     <h1>create admin</h1>
-    <input type="text" name="uname" placeholder="Enter Username" id="username">
+    <input type="text" name="uname" placeholder="Enter Username" id="username" autocomplete="off">
     <input type="password" name="pwd" placeholder="Enter Password" id="password">
     <input type="password" name="conpwd" placeholder="Confirm Password" id="confirmpass">
+    <?php
+      if(isset($_GET["error"])){
+        if ($_GET["error"] == "pwd_tooshort") {
+          echo "Your pwd is too short!";
+        }
+        elseif ($_GET["error"] == "pwd_tooshort") {
+          // code...
+        }
+      }
+     ?>
     <input type="submit" name="submit" value="Login" onclick="validate()">
   </form>
 

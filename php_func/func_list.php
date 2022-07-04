@@ -1,5 +1,16 @@
 <?php
 //sign up
+function emptyInput($value)
+{
+  $result;
+  if (empty($uname)) {
+    $result = true;
+  } else {
+    $result = false;
+  }
+  return $result;
+}
+
 function emptyInputSignup($uname, $pwd, $conpwd)
 {
   $result;
@@ -138,7 +149,7 @@ function loginUser($conn, $uname, $pwd){
   if ($getPwd === $pwd) {
     session_start();
     $_SESSION["uname"] = $unameEmailExist["uname"];
-    header("location: ../index.php?login=success&admin=");
+    header("location: ../index.php?login=success");
     exit();
   } else {
     header("location: ../login.php?error=wrongpassword");

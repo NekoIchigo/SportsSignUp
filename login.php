@@ -1,6 +1,10 @@
+<?php
+  if (!isset($_GET["q-WLJp5sB):y7x`;"])){
+    header("location: index.php");
+  }
+  ?>
 <!DOCTYPE html>
 <html lan="en" and dir="Itr">
-
 <head>
   <meta charset="utf-8">
   <title> Interactive Login Form</title>
@@ -16,7 +20,7 @@
   </div>
   <form class="box" action="php_func/login_func.php" method="POST">
     <h1>login</h1>
-    <input type="text" name="uname" placeholder="Enter Username" id="username">
+    <input type="text" name="uname" placeholder="Enter Username" id="username" autocomplete="off">
     <input type="password" name="pwd" placeholder="Enter Password" id="password">
     <input type="submit" name="submit" value="Login" onclick="validate()">
   </form>
