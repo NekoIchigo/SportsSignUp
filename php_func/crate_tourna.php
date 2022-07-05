@@ -68,7 +68,7 @@ if (isset($_POST["submit"])) {
     for ($i=0; $i < $data["no_participants"]/2; $i++) {
         $teamOne = $teamArr[$arr[$k]];
         $teamTwo = $teamArr[$arr[++$k]];
-        $sql4 = "INSERT INTO `matches`(`teamOne`, `teamTwo`, `mResult`, `tournamentID`) VALUES ('$teamOne','$teamTwo','0','$_tournamentID')";
+        $sql4 = "INSERT INTO `matches`(`teamOne`, `teamTwo`, `mResult`, `tournamentID`, `branch`) VALUES ('$teamOne','$teamTwo','0','$_tournamentID', '1')";
         if (!mysqli_query($conn, $sql4)) {
           echo("Error description in matches: " . mysqli_error($conn));
         }

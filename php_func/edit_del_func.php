@@ -3,6 +3,10 @@ require "dbh_func.php";
 //delete tournament
 if (isset($_POST['delete'])) {
   $id = $_POST["tournament_id"];
+  $res = "DELETE FROM matches WHERE tournamentID = '$id';";
+  mysqli_query($conn, $res);
+  $res = "DELETE FROM teams WHERE tournamentID = '$id';";
+  mysqli_query($conn, $res);
   $sql = "DELETE FROM tournament WHERE tournamentID = '$id';";
   mysqli_query($conn, $sql);
 
@@ -132,5 +136,5 @@ else if (isset($_POST["submit"])) {
   }
 }
 else{
-  #header("location: ../index.php");
+  header("location: ../index.php");
 }
