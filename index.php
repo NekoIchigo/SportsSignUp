@@ -23,7 +23,7 @@
               <li><a href="php_func/logout_func.php">Logout</a></li>';
           }
          ?>
-         <li><a href="aboutDevs.html">About The Devs</a></li>
+         <li><a href="aboutDevs.html">About Us</a></li>
         </ul>
     </nav>
     </div>
@@ -35,22 +35,25 @@
       <?php
       // fetching data fromm database
       $result = mysqli_query($conn, "SELECT * FROM tournament");
-      if ($data = mysqli_fetch_assoc($result)) {
-        while ($data = mysqli_fetch_assoc($result)) {
-          echo '<div class="card">
-                    <div class="card-image" style="background-image:url(img/event_img/'.$data["toutnamentPic"].')"></div>
-                    <h2>'.$data["tournamentName"].'</h2>
-                    <p><i class="fa fa-user"></i> '.$data["eventHandler"].'<br></p>
-                    <p><i class="fa fa-gamepad"></i>   '.$data["sportsType"].'<br></p>
-                    <p><i class="fa fa-users"></i>   '.$data["no_participants"].' participants<br></p>
-                    <p><i class="fa fa-calendar"></i>   '.$data["tournamentDate"].'<br></p>
-                    <p><i class="fa fa-clock"></i>  '.$data["tournamentTime"].'<br></p>
-                    <a href=""> View </a>';
-          if(isset($_SESSION["uname"])){
-              echo '<a href="edit_del.php"> Edit </a>';
+      while ($data = mysqli_fetch_assoc($result)) {
+        echo '<div class="card">
+                  <div class="card-image" style="background-image:url(img/event_img/'.$data["toutnamentPic"].')"></div>
+                  <h2>'.$data["tournamentName"].'</h2>
+                  <p><i class="fa fa-user"></i> '.$data["eventHandler"].'<br></p>
+                  <p><i class="fa fa-gamepad"></i>   '.$data["sportsType"].'<br></p>
+                  <p><i class="fa fa-users"></i>   '.$data["no_participants"].' participants<br></p>
+                  <p><i class="fa fa-calendar"></i>   '.$data["tournamentDate"].'<br></p>
+                  <p><i class="fa fa-clock"></i>  '.$data["tournamentTime"].'<br></p>';
+          if ($data["tournamentStatus"] == 0) {
+            echo '<p><i class="fa fa-gear"></i>  Event On-going<br></p>';
+          }else{
+            echo '<p><i class="fa fa-check-circle"></i>  Event finished<br></p>';
           }
-          echo '</div>';
+           echo  '<a href="_bracket.php?tournamentID='.$data["tournamentID"].'"> View </a>';
+        if(isset($_SESSION["uname"])){
+            echo '<a href="edit_del.php?id='.$data["tournamentID"].'"> Edit </a>';
         }
+        echo '</div>';
       }
        ?>
     </section>

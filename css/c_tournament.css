@@ -11,7 +11,11 @@ body{
       font-weight: bold;
       margin: 0px;
       padding: 0px;
-      background: #272a33;
+      width: 100%;
+      color: white;
+      height: 100%;
+      background: #605d73;
+      background-size: 100% 100%;
 }
 
 label.tourna {
@@ -53,7 +57,7 @@ nav ul li{
 nav ul li a{
   color: white;
   font-size: 17px;
-  padding: 7px 13px;
+  padding: 7px 5px;
   border-radius: 3px;
   text-transform: uppercase;
 }
@@ -77,15 +81,6 @@ table {
     background: rgba(39, 42, 51, 255);
 }
 
-
-body {
-    width: 100%;
-    color: white;
-    height: 100%;
-    background: #605d73;
-    background-size: 100% 100%;
-}
-
 body h1 {
     color: white;
     text-transform: uppercase;
@@ -95,11 +90,14 @@ body h1 {
     text-align: center;
 }
 
-#button1 {
+.btn{
+  margin: 20px 138px;
+}
+
+.button1 {
     border:0;
+    margin: 0 10px;
     background:#ff7324;
-    display:block;
-    margin:20px auto;
     text-align: left;
     padding:14px 35px;
     outline:none;

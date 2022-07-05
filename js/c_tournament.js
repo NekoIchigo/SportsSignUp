@@ -4,8 +4,9 @@ const previewContainer = document.getElementById("imagePreview");
 const previewImage = previewContainer.querySelector(".image-preview__image");
 const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
 
-inpFile.addEventListener("change", function() {
+inpFile.addEventListener("change", showImg);
 
+function showImg(){
     const file = this.files[0];
     console.log(file);
 
@@ -26,7 +27,7 @@ inpFile.addEventListener("change", function() {
         previewImage.style.display = null;
         previewImage.setAttribute("src","");
     }
-});
+}
 
 //add Participant field
 const select_no_parti = document.getElementById("partcipants");
@@ -34,6 +35,7 @@ const part4 = document.getElementById("part_4");
 const part8 = document.getElementById("part_8");
 part4.style.display = "none";
 part8.style.display = "none";
+
 select_no_parti.addEventListener("change", show_parti);
 
 function show_parti(){

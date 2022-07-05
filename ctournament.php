@@ -1,4 +1,5 @@
 <?php
+  session_start();
   if (!isset($_SESSION["uname"])) {
     header("location: index.php");
   }
@@ -7,15 +8,28 @@
 <html>
 <head>
   <title> CREATE TOURNAMENT </title>
+  <link rel="shortcut icon" type="x-icon" href="img/tablogo.png">
   <link rel="stylesheet" href="css/c_tournament.css" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous"
     referrerpolicy="no-referrer" />
 </head>
 <body>
+  <?php
+    if (isset($_GET["error"])) {
+      if($_GET["error"]=="emptyinput")
+      echo '<script>alert("Empty input, please enter the necessary information");</script>';{
+      }
+      if($_GET["error"]=="tournamentName_taken")
+      echo '<script>alert("Tournament Name Taken, Plese Choose a different name!");</script>';{
+      }
+    }
+   ?>
   <div class="logo"><a href="index.php"><img src="img/TOP.png"></a>
     <nav>
+      <label class="tourna">TOURNAMENTS</label>
       <ul>
-        <li><a class="" href="createAdmin.php">Create Admin</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="createAdmin.php">Create Admin</a></li>
         <li><a href="ctournament.php">Create Tournament</a></li>
         <li><a href="php_func/logout_func.php">Logout</a></li>
       </ul>
@@ -72,6 +86,16 @@
       </td>
     </tr>
     <tr>
+      <td class="txt"><br><br> Event Status :</br>
+        <td><br><br><select class="sportsType" style="padding: 5px" name="status">
+            <option value="2">Select</option>
+            <option value="0">On-Going</option>
+            <option value="1">Finished</option>
+          </select>
+        </td>
+      </td>
+    </tr>
+    <tr>
       <td class="txt"><br><br> Number of Participants :</br>
         <td><br><br><select id="partcipants" class="sportsType" style="padding: 5px" name="no_participants">
             <option value="0">Select</option>
@@ -119,8 +143,10 @@
     </tbody>
     <tr>
       <td align="center" colspan="2">
+        <div style="margin: 20px 220px">
         <br>
-        <input type="submit" value="SUBMIT" name="submit" id="button1"/>
+        <input type="submit" value="SUBMIT" name="submit" class="button1"/>
+        </div>
         </form>
       </td>
     </tr>

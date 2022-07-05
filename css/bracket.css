@@ -1,0 +1,346 @@
+/* Part 1, background color for inside & outside container*/
+*{
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+label.tourna{
+  color: white;
+  font-size: 35px;
+  line-height: 150px;
+  padding: 0 250px;
+}
+
+body{
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    background: #272a33;
+}
+label.aboutus{
+  color: white;
+  font-size: 35px;
+  line-height: 150px;
+  padding: 0 250px;
+}
+.logo img{
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 50px;
+    width: 200px;
+    height: 200px;
+}
+
+.Container{
+    display: flex;
+    width: fill;
+    position: relative;
+    top: 0%;
+    left: 0%;
+    margin-left:10px ;
+
+}
+/* navbar */
+#adminbutton{
+  
+}
+nav{
+  background-color: #24305d;
+  width: 100%;
+  height: 150px;
+  margin: 0px;
+  padding: 0px;
+}
+
+nav ul,#adminbutton{
+  float: right;
+  margin-right: 10px;
+}
+
+nav ul li,#adminbutton{
+  display: inline-block;
+  line-height: 70px;
+  margin-right: 10px;
+  margin-top: -10px;
+}
+
+nav ul li a, #adminbutton{
+  color: white;
+  font-size: 17px;
+  padding: 7px 5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+
+
+a.active,a:hover{
+  background: #303540;
+  transition: .5s;
+}
+
+#navbar ul #back
+{
+    height: 30px;
+    width: 120px;
+    position: absolute;
+    top: 2%;
+    right: 0%;
+    display: grid;
+    place-items: center;
+    background: #F8931D;
+    border-radius: 10px 10px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-style: none;
+}
+#navbar ul #back a
+{
+    color: #e9e9eb;
+}
+#navbar ul #back:hover
+{
+    background: #000;
+}
+
+#navbar ul #member
+{
+    height: 30px;
+    width: 250px;
+    position: absolute;
+    top: 2%;
+    right: 10%;
+    display: grid;
+    place-items: center;
+    background: #F8931D;
+    border-radius: 10px 10px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-style: none;
+}
+#navbar ul #member a
+{
+    color: #e9e9eb;
+}
+#navbar ul #member:hover
+{
+    background: #000;
+}
+
+button{
+    width: 60px;
+    height: 40px;
+    border: none;
+    font-size: 20px;
+    border-radius: 0px 4px 4px 0px;
+    background-color:#83858b;
+    text-align: center;
+}
+
+button.Name{
+display: flex;
+align-items: center;
+width: 230px;
+height: 40px;
+padding:0px 20px;
+font-size: 20px;
+border-radius: 4px 0px 0px 4px;
+}
+
+.crown-icon {
+    color:#FFD700;
+    top:50%;
+    transform: translate(-200%,-180%);
+}
+/* Part 2: Branch Style, Branch Size & Display*/
+.Branch_1{
+
+    width: 350px;
+    flex-wrap: wrap;
+    display: flex;
+
+}
+
+.Branch_2{
+
+    width: 350px;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.Branch_3{
+
+    width: 400px;
+    flex-wrap: wrap;
+    display: flex;
+}
+.Branch_4{
+
+    flex-wrap: wrap;
+    display: flex;
+}
+/* Part 3: Object style*/
+
+.Object_1:nth-child(even) , .Object_2:nth-child(even) , .Object_3:nth-child(even){
+display: grid;
+grid-template-columns: 230px 100px;
+grid-template-rows: 50px 50px;
+width: 300px;
+padding-top: 4px;
+padding-left: 4px;
+}
+
+.Object_1:nth-child(odd) , .Object_2:nth-child(odd) , .Object_3:nth-child(odd){
+    display: grid;
+    grid-template-columns: 230px 100px;
+    grid-template-rows: 50px 50px;
+    width: 300px;
+    padding-top: 4px;
+    padding-left: 4px;
+    }
+
+.Name_Forward{
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    margin-left: -10px;
+    transition: 0.25px;
+    padding:0px 20px;
+    font-size: 15px;
+    border-radius: 4px 0px 0px 4px;
+    color: white;
+    background-color: #58595e;
+}
+.Name{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    width: 220px;
+    height: 40px;
+    transition: 0.25px;
+    padding:0px 20px;
+    color: white;
+    font-size: 15px;
+    border-radius: 4px 0px 0px 4px;
+    background-color: #58595e;
+}
+
+/* Part 4: Match data sizes*/
+input{
+    width: 60px;
+    height: 35px;
+    font-size: 20px;
+    border-radius: 0px 4px 4px 0px;
+    background-color:#83858b;
+    text-align: center;
+}
+
+.Status{
+    float: right;
+    display: inline-block;
+    margin: 20px;
+    width: 120px;
+    height: 40px;
+    border: none;
+    font-size: 20px;
+    border-radius: 3px;
+    background-color:#83858b;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    padding: 7px 5px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+input.Name{
+display: flex;
+align-items: center;
+width: 230px;
+height: 40px;
+padding:0px 20px;
+font-size: 20px;
+border-radius: 4px 0px 0px 4px;
+}
+/* */
+.Object_1{
+    margin-top: 10%; /*new value for symmetrical bracket 8 players*/
+}
+.Match{
+    height: 150px; /*new value for symmetrical bracket 8 players*/
+    margin-left: 40px;
+}
+
+.Object_2{
+    margin-top: 30%; /*new value for symmetrical bracket 8 players*/
+}
+
+.Match_02{
+    height: 300px; /*new value for symmetrical bracket 8 players*/
+    margin-left: 40px;
+}
+
+.Object_3{
+    margin-top: 80%; /*new value for symmetrical bracket 8 players*/
+}
+
+.Match_03{
+    height: 600px; /*new value for symmetrical bracket 8 players*/
+    margin-left: 40px;
+}
+.Object_4{
+    margin-top: 120%; /*new value for symmetrical bracket 8 players*/
+}
+
+.Match_04{
+    height: 600px; /*new value for symmetrical bracket 8 players*/
+    margin-left: 40px;
+}
+
+.footer{
+  padding: 20px 0;
+  background-color: #24305d;
+}
+
+.footer .social{
+  text-align: center;
+  padding-bottom: 10px;
+  color: #4b4c4d;
+}
+
+.footer .social a{
+  font-size: 24px;
+  color: #aaa;
+  border: 1px solid #ccc;
+  width: 40px;
+  height: 40px;
+  line-height: 38px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  margin-left: 0 8px;
+  opacity: 0.75;
+}
+
+.footer .social a:hover{
+  opacity: 0.9;
+}
+
+.footer .topfooter{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  height: 50px;
+}
+.footer .copyright{
+  margin-top: 10px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: normal;
+  color: #aaa;
+}
+
+/* */

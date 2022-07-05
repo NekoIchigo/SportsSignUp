@@ -7,12 +7,12 @@ if (isset($_POST["submit"])) {
   require_once 'func_list.php';
 
   if (emptyInputLogin($uname, $pwd) !== false) {
-    header("location: ../login.php?error=emptyinput");
+    header("location: ../login.php?q-WLJp5sB):y7x`;&error=emptyinput");
     exit();
   }
 
   loginUser($conn, $uname, $pwd);
 } else {
-  header("location: ../login.php");
+  header("location: ../login.php?q-WLJp5sB):y7x`;");
   exit();
 }

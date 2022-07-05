@@ -8,13 +8,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-    <div class="logo"><a href=""><img src="img/TOP.png"></a>
+    <div class="logo"><a href="index.php"><img src="img/TOP.png"></a>
 
     <nav>
         <label class="aboutus">ABOUT THE DEVS</label>
-
         <ul>
-          <li><a class="" href="index.php">Home</a></li>
+          <li><a href="index.php">Home</a></li>
+          <?php
+          session_start();
+          require "php_func/dbh_func.php";
+            if(isset($_SESSION["uname"])){
+              echo '
+                <li><a class="" href="createAdmin.php">Create Admin</a></li>
+                <li><a href="ctournament.php">Create Tournament</a></li>
+                <li><a href="php_func/logout_func.php">Logout</a></li>';
+            }
+           ?>
         </ul>
     </nav>
     </div>
