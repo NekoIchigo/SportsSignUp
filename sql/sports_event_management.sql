@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2022 at 07:51 AM
+-- Generation Time: Jul 05, 2022 at 01:43 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -53,32 +53,47 @@ CREATE TABLE `matches` (
   `teamOne` int(11) DEFAULT NULL,
   `teamTwo` int(11) DEFAULT NULL,
   `mResult` int(1) DEFAULT NULL,
-  `tournamentID` int(11) DEFAULT NULL
+  `tournamentID` int(11) DEFAULT NULL,
+  `branch` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `matches`
 --
 
-INSERT INTO `matches` (`matchId`, `teamOne`, `teamTwo`, `mResult`, `tournamentID`) VALUES
-(7, 81, 84, 0, 26),
-(8, 82, 83, 0, 26),
-(9, 77, 79, 0, 25),
-(10, 78, 80, 0, 25),
-(11, 73, 74, 0, 24),
-(12, 75, 76, 0, 24),
-(13, 69, 72, 0, 23),
-(14, 70, 71, 0, 23),
-(15, 65, 67, 0, 22),
-(16, 66, 68, 0, 22),
-(17, 57, 60, 0, 21),
-(18, 58, 64, 0, 21),
-(19, 61, 59, 0, 21),
-(20, 62, 63, 0, 21),
-(21, 88, 89, 0, 27),
-(22, 91, 87, 0, 27),
-(23, 85, 86, 0, 27),
-(24, 92, 90, 0, 27);
+INSERT INTO `matches` (`matchId`, `teamOne`, `teamTwo`, `mResult`, `tournamentID`, `branch`) VALUES
+(9, 77, 79, 0, 25, 1),
+(10, 78, 80, 0, 25, 1),
+(11, 73, 74, 1, 24, 1),
+(12, 75, 76, 1, 24, 1),
+(13, 69, 72, 1, 23, 1),
+(14, 70, 71, 1, 23, 1),
+(15, 65, 67, 1, 22, 1),
+(16, 66, 68, 2, 22, 1),
+(25, 69, 70, 1, 23, 3),
+(30, 65, 68, 2, 22, 3),
+(35, 73, 75, 1, 24, 3),
+(39, 102, 97, 2, 29, 1),
+(40, 99, 100, 1, 29, 1),
+(41, 103, 101, 2, 29, 1),
+(42, 98, 104, 2, 29, 1),
+(53, 102, 99, 1, 29, 2),
+(54, 101, 104, 1, 29, 2),
+(56, 108, 110, 1, 30, 1),
+(57, 111, 106, 2, 30, 1),
+(58, 107, 112, 1, 30, 1),
+(59, 105, 109, 2, 30, 1),
+(60, 108, 106, 1, 30, 2),
+(61, 107, 109, 1, 30, 2),
+(62, 108, 107, 2, 30, 3),
+(64, 102, 101, 1, 29, 3),
+(70, 131, 128, 1, 32, 1),
+(71, 126, 129, 1, 32, 1),
+(72, 125, 127, 1, 32, 1),
+(73, 130, 132, 1, 32, 1),
+(74, 131, 126, 1, 32, 2),
+(75, 125, 130, 1, 32, 2),
+(76, 131, 125, 1, 32, 3);
 
 -- --------------------------------------------------------
 
@@ -97,14 +112,7 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`id`, `tournamentID`, `teamName`) VALUES
-(57, 21, 'COS'),
-(58, 21, 'CLA 2'),
-(59, 21, 'CIT'),
-(60, 21, 'COE'),
-(61, 21, 'CAFA'),
-(62, 21, 'CIE'),
-(63, 21, 'CLA'),
-(64, 21, 'COS 2'),
+(1, 1, 'N/A'),
 (65, 22, 'Ninja Turtles'),
 (66, 22, 'Team Rocket'),
 (67, 22, 'Avengers'),
@@ -121,18 +129,30 @@ INSERT INTO `teams` (`id`, `tournamentID`, `teamName`) VALUES
 (78, 25, 'Blue Turtles'),
 (79, 25, 'The Bookworms'),
 (80, 25, 'The Amazing Nerds'),
-(81, 26, 'COS Team1'),
-(82, 26, 'COS Team2'),
-(83, 26, 'COS Team3'),
-(84, 26, 'COS Team4'),
-(85, 27, 'Eman'),
-(86, 27, 'Ronil'),
-(87, 27, 'Reydan'),
-(88, 27, 'John'),
-(89, 27, 'Andrei'),
-(90, 27, 'Yoji'),
-(91, 27, 'Shaun'),
-(92, 27, 'James');
+(97, 29, 'Reydan'),
+(98, 29, 'Yoji'),
+(99, 29, 'Andrei'),
+(100, 29, 'Eman'),
+(101, 29, 'Shaun'),
+(102, 29, 'Mario'),
+(103, 29, 'Luigi'),
+(104, 29, 'Joe'),
+(105, 30, 'COS'),
+(106, 30, 'CLA'),
+(107, 30, 'CIT'),
+(108, 30, 'CIE'),
+(109, 30, 'COE'),
+(110, 30, 'CAFA'),
+(111, 30, 'CAFA 3'),
+(112, 30, 'COS 3'),
+(125, 32, 'COS 1'),
+(126, 32, 'CLA 1'),
+(127, 32, 'COE 1'),
+(128, 32, 'CIE 1'),
+(129, 32, 'CIT 1'),
+(130, 32, 'CAFA 1'),
+(131, 32, 'CIT 2'),
+(132, 32, 'COS 2');
 
 -- --------------------------------------------------------
 
@@ -149,21 +169,23 @@ CREATE TABLE `tournament` (
   `tournamentTime` time NOT NULL,
   `eventHandler` varchar(50) NOT NULL,
   `no_participants` int(1) DEFAULT NULL,
-  `tournamentStatus` int(1) DEFAULT NULL
+  `tournamentStatus` int(1) DEFAULT NULL,
+  `winner` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tournament`
 --
 
-INSERT INTO `tournament` (`tournamentID`, `toutnamentPic`, `tournamentName`, `sportsType`, `tournamentDate`, `tournamentTime`, `eventHandler`, `no_participants`, `tournamentStatus`) VALUES
-(21, 'wildrift.jpg', 'Wild Rift Tournament', 'Mobile Game', '2022-07-30', '17:00:00', 'Mr. Reydan', 8, 2),
-(22, 'ML.jpg', 'Mobile Legends Tournament', 'Mobile Game', '2022-07-28', '10:00:00', 'Mr. Pantia', 4, 0),
-(23, 'basketball.jpeg', 'Basketball Tournament', 'Basketball', '2022-07-21', '10:00:00', 'Mr. Gamboa', 4, 0),
-(24, 'volleyball.jpg', 'Volleyball Tournament', 'Volleyball', '2022-07-25', '12:00:00', 'Mr. Eman', 4, 0),
-(25, 'chess-playing-hand.jpeg', 'Chess Tournament', 'Chess', '2022-07-29', '15:00:00', 'Mr. De Vera', 4, 0),
-(26, 'Call-of-Duty-Mobile.jpg', 'COD Mobile Tournament', 'Mobile Game', '2022-07-20', '01:00:00', 'Mr. Belen', 4, 0),
-(27, 'table-tennis.jpg', 'Table Tennis Tournament', 'Table Tennis', '2022-08-05', '09:00:00', 'Mr. Sitjar', 8, 0);
+INSERT INTO `tournament` (`tournamentID`, `toutnamentPic`, `tournamentName`, `sportsType`, `tournamentDate`, `tournamentTime`, `eventHandler`, `no_participants`, `tournamentStatus`, `winner`) VALUES
+(1, '1', '1', '1', '0000-00-00', '00:00:01', '1', 1, 1, NULL),
+(22, 'ML.jpg', 'Mobile Legends Tournament', 'Mobile Game', '2022-07-28', '10:00:00', 'Mr. Pantia', 4, 1, 'SKT'),
+(23, 'basketball.jpeg', 'Basketball Tournament', 'Basketball', '2022-07-21', '10:00:00', 'Mr. Gamboa', 4, 0, 'COS Basketbball Team'),
+(24, 'volleyball.jpg', 'Volleyball Tournament', 'Volleyball', '2022-07-25', '12:00:00', 'Mr. Eman', 4, 0, 'Freshmen'),
+(25, 'chess-playing-hand.jpeg', 'Chess Tournament', 'Chess', '2022-07-29', '15:00:00', 'Mr. De Vera', 4, 0, NULL),
+(29, 'badminton.jpg', 'Badminton Tournament', 'Badminton', '2022-07-30', '06:00:00', 'Mr. Yoji', 8, 0, 'Mario'),
+(30, 'wildrift.png', 'Wild Rift Tournament', 'Mobile Game', '2022-07-29', '09:00:00', 'Mr. Reydan', 8, 1, 'CIT'),
+(32, 'Call-of-Duty-Mobile.jpg', 'COD Mobile Tournament', 'Mobile Game', '2022-07-27', '22:00:00', 'Yoji Gamboa', 8, 1, 'CIT 2');
 
 --
 -- Indexes for dumped tables
@@ -212,19 +234,19 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `matches`
 --
 ALTER TABLE `matches`
-  MODIFY `matchId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `matchId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
 -- AUTO_INCREMENT for table `tournament`
 --
 ALTER TABLE `tournament`
-  MODIFY `tournamentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `tournamentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Constraints for dumped tables
