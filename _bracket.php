@@ -45,12 +45,10 @@
                         <li><a href="createAdmin.php">Create Admin</a></li>
                         <li><a href="ctournament.php">Create Tournament</a></li>
                         <li><a href="php_func/logout_func.php">Logout</a></li>
-                        <li><a href="_bracket.php?tournamentID='.$tournaID.'&edit=true"><b>Edit Status</b></a></li>';
-                      if ($tourna["tournamentStatus"] == 0) {
-                      echo '
+                        <li><a href="_bracket.php?tournamentID='.$tournaID.'&edit=true"><b>Edit Status</b></a></li>
                         <li><a href="edit_del.php?id='.$tournaID.'"><b>Edit Tournament</b></a></li>
                       ';
-                      }
+
                     }
                    ?>
 

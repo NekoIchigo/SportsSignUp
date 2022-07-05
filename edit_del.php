@@ -86,7 +86,7 @@
     <tr>
       <td class="txt"><br><br> Event Status :</br>
         <td><br><br><select class="sportsType" style="padding: 5px" name="status">
-            <option value="2">Select</option>
+            <option value="0">Select</option>
             <option value="0">On-Going</option>
             <option value="1">Finished</option>
           </select>

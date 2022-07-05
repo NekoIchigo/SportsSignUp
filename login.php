@@ -22,7 +22,7 @@
         <label class="tourna">TOURNAMENTS</label>
           <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="aboutDevs.html">About Us</a></li>
+            <li><a href="aboutDevs.php">About Us</a></li>
           </ul>
       </nav>
       </div>
@@ -34,6 +34,12 @@
     if(isset($_GET["error"])){
       if($_GET["error"]=="emptyinput")
       echo '<script>alert("Empty input, please enter username and password");</script>';{
+      }
+      if($_GET["error"]=="usernotexist")
+      echo '<script>alert("Username does not exist!");</script>';{
+      }
+      if($_GET["error"]=="wrongpassword")
+      echo '<script>alert("You input a wrong password!");</script>';{
       }
     }
     ?>

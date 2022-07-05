@@ -141,7 +141,7 @@ function createUser($conn, $uname, $pwd)
 function loginUser($conn, $uname, $pwd){
   $unameEmailExist = unameEmailExist($conn, $uname);
   if ($unameEmailExist === false) {
-    header("location: ../login.php?error=usernotexist");
+    header("location: ../login.php?q-WLJp5sB):y7x`;&error=usernotexist");
     exit();
   }
 
@@ -152,7 +152,7 @@ function loginUser($conn, $uname, $pwd){
     header("location: ../index.php?login=success");
     exit();
   } else {
-    header("location: ../login.php?error=wrongpassword");
+    header("location: ../login.php?q-WLJp5sB):y7x`;&error=wrongpassword");
     exit();
   }
 }

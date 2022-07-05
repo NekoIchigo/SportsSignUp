@@ -23,7 +23,7 @@
               <li><a href="php_func/logout_func.php">Logout</a></li>';
           }
          ?>
-         <li><a href="aboutDevs.html">About Us</a></li>
+         <li><a href="aboutDevs.php">About Us</a></li>
         </ul>
     </nav>
     </div>
@@ -47,11 +47,11 @@
                     <p><i class="fa fa-clock"></i>  '.$data["tournamentTime"].'<br></p>';
             if ($data["tournamentStatus"] == 0) {
               echo '<p><i class="fa fa-gear"></i>  Event On-going<br></p>';
-              if(isset($_SESSION["uname"])){
-                  echo '<a href="edit_del.php?id='.$data["tournamentID"].'"> Edit </a>';
-              }
             }else{
               echo '<p><i class="fa fa-check-circle"></i>  Event finished<br></p>';
+            }
+            if(isset($_SESSION["uname"])){
+                echo '<a href="edit_del.php?id='.$data["tournamentID"].'"> Edit </a>';
             }
              echo  '<a href="_bracket.php?tournamentID='.$data["tournamentID"].'"> View </a>';
           echo '</div>';

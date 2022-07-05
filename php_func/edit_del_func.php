@@ -39,6 +39,13 @@ else if (isset($_POST["submit"])) {
   $result = mysqli_query($conn, "SELECT * FROM tournament WHERE tournamentID = $id;");
   $data = mysqli_fetch_assoc($result);
 
+  //update tournament_name
+  if ($tournament_name != $data["tournament_name"]) {
+    $sql = "UPDATE tournament SET tournamentName = '$tournament_name' WHERE tournamentID = '$id';";
+    mysqli_query($conn, $sql);
+    $update = true;
+  }
+
   //update sportsType
   if ($sports_type != $data["sportsType"]) {
     $sql = "UPDATE tournament SET sportsType = '$sports_type' WHERE tournamentID = '$id';";
